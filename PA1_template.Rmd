@@ -3,13 +3,31 @@
 
 ## Loading and preprocessing the data
 
+```{r echo=FALSE}
 
+setwd("D:\\temp\\")
+
+activity = read.csv("activity.csv", colClasses = c("numeric", "Date", "numeric"))
+
+activity=na.omit(activity)
+```
 
 ## What is mean total number of steps taken per day?
 
 
+```{r }
+
+tapply(activity$steps, activity$date, mean, na.rm=TRUE)
+
+tapply(activity$steps, activity$date, FUN = median)
+```
+
 
 ## What is the average daily activity pattern?
+```{r }
+
+hist(activity$date,activity$steps, breaks=60)
+```
 
 
 
